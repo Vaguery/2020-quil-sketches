@@ -16,7 +16,7 @@
 
 (defn update-state [state]
   (-> state
-    (update-in , [:angle] #(* 1.00025 %))
+    (update-in , [:angle] #(+ 0.0025 %))
     ))
 
 (defn draw-lattice
@@ -49,7 +49,7 @@
 ; this function is called in index.html
 (defn ^:export run-sketch []
   (q/defsketch negative-space-quil
-    :host "negative-space-quil"
+    :host "20200206-quil"
     :size [400 400]
     :setup setup
     :update update-state
