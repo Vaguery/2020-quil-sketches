@@ -9,12 +9,27 @@
   (q/blend-mode :blend)
   (q/ellipse-mode :radius)
   {:y-lattice
-    {:width 6 :height 6 :color (q/color 44 100 255 100) :radius 3 :angle (rand-int 100) :offset [0 0]}
+    { :width 6
+      :height 6
+      :color (q/color 44 100 255 100)
+      :radius 3
+      :angle (rand-int 100)
+      :offset [0 0]}
   :c-lattice
-    {:width 7 :height 7 :color (q/color 128 230 255 130) :radius 3 :angle (rand-int 100) :offset [0 0]}
+    { :width 7
+      :height 7
+      :color (q/color 128 230 255 130)
+      :radius 3
+      :angle (rand-int 100)
+      :offset [0 0]}
    :m-lattice
-    {:width 8 :height 8 :color (q/color 214 200 255 255) :radius 3 :angle (rand-int 100) :offset [0 0]}
-   })
+    { :width 8
+      :height 8
+      :color (q/color 214 200 255 255)
+      :radius 3
+      :angle (rand-int 100)
+      :offset [0 0]}
+      })
 
 (defn update-state [state]
   (-> state
