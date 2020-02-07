@@ -6,17 +6,21 @@
 (defn setup []
   (q/frame-rate 30)
   (q/color-mode :hsb)
+  (q/blend-mode :blend)
   (q/ellipse-mode :radius)
-  {:back-lattice
-    {:width 20 :height 20 :color (q/color 111) :radius 8}
-   :front-lattice
-    {:width 21 :height 21 :color (q/color 240) :radius 9}
-   :angle 11
+  {:y-lattice
+    {:width 13 :height 13 :color (q/color 44 255 255 160) :radius 4 :angle 0 :offset [0 0]}
+  :c-lattice
+    {:width 13 :height 13 :color (q/color 128 255 255 160) :radius 4 :angle 90 :offset [0 0]}
+   :m-lattice
+    {:width 13 :height 13 :color (q/color 214 255 255 160) :radius 4 :angle 180 :offset [0 0]}
    })
 
 (defn update-state [state]
   (-> state
-    (update-in , [:angle] #(+ 0.0025 %))
+    (update-in , [:y-lattice :angle] #(+ 0.002 %))
+    (update-in , [:m-lattice :angle] #(+ -0.003 %))
+    (update-in , [:c-lattice :angle] #(+ 0.004 %))
     ))
 
 (defn draw-lattice
@@ -25,31 +29,36 @@
         h (:height lattice)
         r (:radius lattice)
         c (:color lattice)
+        angle (:angle lattice)
+        offset (:offset lattice)
         scale-x (* 1.5 (/ (q/width) w))
         scale-y (* 1.5 (/ (q/height) w))
         ]
     (q/no-stroke)
     (q/fill c)
-    (doseq [x (range (- scale-x) scale-x)
-            y (range (- scale-y) scale-y)]
-      (q/ellipse (* x w) (* y h) r r)
-      )))
+    (q/with-translation offset
+      (q/with-rotation [angle]
+        (doseq [x (range (- scale-x) scale-x)
+                y (range (- scale-y) scale-y)]
+          (q/ellipse (* x w) (* y h) (+ (/ x 5) r) (+ (/ x 5) r))
+          )))))
 
 (defn draw-state [state]
-  (let [bl (:back-lattice state)
-        fl (:front-lattice state)]
-    (q/background 240)
+  (let [yellow (:y-lattice state)
+        magenta (:m-lattice state)
+        cyan (:c-lattice state)
+        ]
+    (q/background 255)
     (q/with-translation [(/ (q/width) 2) (/ (q/height) 2)]
-      (draw-lattice bl)
-      (q/with-rotation [(:angle state)]
-        (draw-lattice fl)
-        ))
-    ))
+      (draw-lattice magenta)
+      (draw-lattice cyan)
+      (draw-lattice yellow)
+      )))
 
 ; this function is called in index.html
 (defn ^:export run-sketch []
   (q/defsketch negative-space-quil
-    :host "20200206-quil"
+    :host "20200207-quil"
     :size [400 400]
     :setup setup
     :update update-state
