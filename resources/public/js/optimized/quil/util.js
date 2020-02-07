@@ -40,8 +40,8 @@ throw (new Error(["Expecting a keyword, got: ",cljs.core.str.cljs$core$IFn$_invo
  * ```
  */
 quil.util.length_of_longest_key = (function quil$util$length_of_longest_key(m){
-var or__4131__auto__ = cljs.core.last(cljs.core.sort.cljs$core$IFn$_invoke$arity$1(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__52483_SHARP_){
-return p1__52483_SHARP_.length();
+var or__4131__auto__ = cljs.core.last(cljs.core.sort.cljs$core$IFn$_invoke$arity$1(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__34079_SHARP_){
+return p1__34079_SHARP_.length();
 }),cljs.core.keys(m))));
 if(cljs.core.truth_(or__4131__auto__)){
 return or__4131__auto__;
@@ -64,8 +64,8 @@ return (0);
  * 
  */
 quil.util.gen_padding = (function quil$util$gen_padding(var_args){
-var G__52485 = arguments.length;
-switch (G__52485) {
+var G__34081 = arguments.length;
+switch (G__34081) {
 case 1:
 return quil.util.gen_padding.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -105,10 +105,10 @@ quil.util.gen_padding.cljs$lang$maxFixedArity = 3;
 quil.util.print_definition_list = (function quil$util$print_definition_list(definitions){
 var longest_key = quil.util.length_of_longest_key(definitions);
 return cljs.core.dorun.cljs$core$IFn$_invoke$arity$1(cljs.core.map.cljs$core$IFn$_invoke$arity$2(((function (longest_key){
-return (function (p__52487){
-var vec__52488 = p__52487;
-var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__52488,(0),null);
-var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__52488,(1),null);
+return (function (p__34083){
+var vec__34084 = p__34083;
+var k = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34084,(0),null);
+var v = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__34084,(1),null);
 var len = k.length();
 var diff = (longest_key - len);
 var pad = quil.util.gen_padding.cljs$core$IFn$_invoke$arity$1(diff);
@@ -123,29 +123,29 @@ quil.util.prepare_quil_name = (function quil$util$prepare_quil_name(const_keywor
 return clojure.string.replace(clojure.string.upper_case(cljs.core.name(const_keyword)),/-/,"_");
 });
 quil.util.prepare_quil_clj_constants = (function quil$util$prepare_quil_clj_constants(constants){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__52491_SHARP_){
-return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__52491_SHARP_,cljs.core.symbol.cljs$core$IFn$_invoke$arity$1(["PConstants/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(quil.util.prepare_quil_name(p1__52491_SHARP_))].join(''))],null));
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__34087_SHARP_){
+return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__34087_SHARP_,cljs.core.symbol.cljs$core$IFn$_invoke$arity$1(["PConstants/",cljs.core.str.cljs$core$IFn$_invoke$arity$1(quil.util.prepare_quil_name(p1__34087_SHARP_))].join(''))],null));
 }),constants));
 });
 quil.util.prepare_quil_cljs_constants = (function quil$util$prepare_quil_cljs_constants(constants){
-return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__52492_SHARP_){
-return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__52492_SHARP_,cljs.core.sequence.cljs$core$IFn$_invoke$arity$1(cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic((new cljs.core.List(null,cljs.core.cst$sym$cljs$core_SLASH_aget,null,(1),null)),(new cljs.core.List(null,cljs.core.cst$sym$js_SLASH_p5$prototype,null,(1),null)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(new cljs.core.List(null,quil.util.prepare_quil_name(p1__52492_SHARP_),null,(1),null))], 0))))],null));
+return cljs.core.into.cljs$core$IFn$_invoke$arity$2(cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__34088_SHARP_){
+return (new cljs.core.PersistentVector(null,2,(5),cljs.core.PersistentVector.EMPTY_NODE,[p1__34088_SHARP_,cljs.core.sequence.cljs$core$IFn$_invoke$arity$1(cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic((new cljs.core.List(null,cljs.core.cst$sym$cljs$core_SLASH_aget,null,(1),null)),(new cljs.core.List(null,cljs.core.cst$sym$js_SLASH_p5$prototype,null,(1),null)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(new cljs.core.List(null,quil.util.prepare_quil_name(p1__34088_SHARP_),null,(1),null))], 0))))],null));
 }),constants));
 });
 quil.util.make_quil_constant_map = (function quil$util$make_quil_constant_map(target,const_map_name,const_map){
 return cljs.core.sequence.cljs$core$IFn$_invoke$arity$1(cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$variadic((new cljs.core.List(null,cljs.core.cst$sym$def,null,(1),null)),(new cljs.core.List(null,const_map_name,null,(1),null)),cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([(new cljs.core.List(null,((cljs.core._EQ_.cljs$core$IFn$_invoke$arity$2(target,cljs.core.cst$kw$clj))?quil.util.prepare_quil_clj_constants(const_map):quil.util.prepare_quil_cljs_constants(const_map)),null,(1),null))], 0))));
 });
-var ret__4776__auto___52498 = (function (){
+var ret__4776__auto___34094 = (function (){
 quil.util.generate_quil_constants = (function quil$util$generate_quil_constants(var_args){
 var args__4736__auto__ = [];
-var len__4730__auto___52499 = arguments.length;
-var i__4731__auto___52500 = (0);
+var len__4730__auto___34095 = arguments.length;
+var i__4731__auto___34096 = (0);
 while(true){
-if((i__4731__auto___52500 < len__4730__auto___52499)){
-args__4736__auto__.push((arguments[i__4731__auto___52500]));
+if((i__4731__auto___34096 < len__4730__auto___34095)){
+args__4736__auto__.push((arguments[i__4731__auto___34096]));
 
-var G__52501 = (i__4731__auto___52500 + (1));
-i__4731__auto___52500 = G__52501;
+var G__34097 = (i__4731__auto___34096 + (1));
+i__4731__auto___34096 = G__34097;
 continue;
 } else {
 }
@@ -157,23 +157,23 @@ return quil.util.generate_quil_constants.cljs$core$IFn$_invoke$arity$variadic((a
 });
 
 quil.util.generate_quil_constants.cljs$core$IFn$_invoke$arity$variadic = (function (_AMPERSAND_form,_AMPERSAND_env,target,opts){
-return cljs.core.sequence.cljs$core$IFn$_invoke$arity$1(cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2((new cljs.core.List(null,cljs.core.cst$sym$do,null,(1),null)),cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__52493_SHARP_){
-return quil.util.make_quil_constant_map(target,cljs.core.first(p1__52493_SHARP_),cljs.core.second(p1__52493_SHARP_));
+return cljs.core.sequence.cljs$core$IFn$_invoke$arity$1(cljs.core.seq(cljs.core.concat.cljs$core$IFn$_invoke$arity$2((new cljs.core.List(null,cljs.core.cst$sym$do,null,(1),null)),cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__34089_SHARP_){
+return quil.util.make_quil_constant_map(target,cljs.core.first(p1__34089_SHARP_),cljs.core.second(p1__34089_SHARP_));
 }),cljs.core.partition.cljs$core$IFn$_invoke$arity$2((2),opts)))));
 });
 
 quil.util.generate_quil_constants.cljs$lang$maxFixedArity = (3);
 
 /** @this {Function} */
-quil.util.generate_quil_constants.cljs$lang$applyTo = (function (seq52494){
-var G__52495 = cljs.core.first(seq52494);
-var seq52494__$1 = cljs.core.next(seq52494);
-var G__52496 = cljs.core.first(seq52494__$1);
-var seq52494__$2 = cljs.core.next(seq52494__$1);
-var G__52497 = cljs.core.first(seq52494__$2);
-var seq52494__$3 = cljs.core.next(seq52494__$2);
+quil.util.generate_quil_constants.cljs$lang$applyTo = (function (seq34090){
+var G__34091 = cljs.core.first(seq34090);
+var seq34090__$1 = cljs.core.next(seq34090);
+var G__34092 = cljs.core.first(seq34090__$1);
+var seq34090__$2 = cljs.core.next(seq34090__$1);
+var G__34093 = cljs.core.first(seq34090__$2);
+var seq34090__$3 = cljs.core.next(seq34090__$2);
 var self__4717__auto__ = this;
-return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__52495,G__52496,G__52497,seq52494__$3);
+return self__4717__auto__.cljs$core$IFn$_invoke$arity$variadic(G__34091,G__34092,G__34093,seq34090__$3);
 });
 
 return null;
