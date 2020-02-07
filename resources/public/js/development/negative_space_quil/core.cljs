@@ -4,23 +4,23 @@
             ))
 
 (defn setup []
-  (q/frame-rate 30)
+  (q/frame-rate 10)
   (q/color-mode :hsb)
   (q/blend-mode :blend)
   (q/ellipse-mode :radius)
   {:y-lattice
-    {:width 13 :height 13 :color (q/color 44 255 255 160) :radius 4 :angle 0 :offset [0 0]}
+    {:width 6 :height 6 :color (q/color 44 100 255 130) :radius 3 :angle 0 :offset [0 0]}
   :c-lattice
-    {:width 13 :height 13 :color (q/color 128 255 255 160) :radius 4 :angle 90 :offset [0 0]}
+    {:width 7 :height 7 :color (q/color 128 230 200 130) :radius 3 :angle 90 :offset [0 0]}
    :m-lattice
-    {:width 13 :height 13 :color (q/color 214 255 255 160) :radius 4 :angle 180 :offset [0 0]}
+    {:width 8 :height 8 :color (q/color 214 200 200 255) :radius 3 :angle 180 :offset [0 0]}
    })
 
 (defn update-state [state]
   (-> state
-    (update-in , [:y-lattice :angle] #(+ 0.002 %))
-    (update-in , [:m-lattice :angle] #(+ -0.003 %))
-    (update-in , [:c-lattice :angle] #(+ 0.004 %))
+    (update-in , [:y-lattice :angle] #(+ 0.001 %))
+    (update-in , [:m-lattice :angle] #(+ -0.002 %))
+    (update-in , [:c-lattice :angle] #(+ 0.003 %))
     ))
 
 (defn draw-lattice
@@ -40,7 +40,7 @@
       (q/with-rotation [angle]
         (doseq [x (range (- scale-x) scale-x)
                 y (range (- scale-y) scale-y)]
-          (q/ellipse (* x w) (* y h) (+ (/ x 5) r) (+ (/ x 5) r))
+          (q/ellipse (* x w) (* y h) (+ (/ x 10) r) (+ (/ x 10) r))
           )))))
 
 (defn draw-state [state]
@@ -59,11 +59,12 @@
 (defn ^:export run-sketch []
   (q/defsketch negative-space-quil
     :host "20200207-quil"
-    :size [400 400]
+    :size [300 300]
     :setup setup
     :update update-state
     :draw draw-state
-    :middleware [m/fun-mode]))
+    :middleware [m/fun-mode]
+    ))
 
 ; uncomment this line to reset the sketch:
 ; (run-sketch)
