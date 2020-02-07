@@ -10,3 +10,5 @@ pom.xml.asc
 figwheel_server.log
 .DS_Store
 .rebel_readline_history
+/resources/public/development/*
+/resources/public/optimized/*
