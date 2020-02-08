@@ -27,7 +27,7 @@
              :source-paths ["src"]
              :compiler
              {:main "negative_space_quil.core"
-              :output-to "resources/public/js/20200207-main.js"
+              :output-to "resources/public/js/20200208-main.js"
               :output-dir "resources/public/js/optimized"
               :asset-path "js/optimized"
               :optimizations :advanced}}]})
