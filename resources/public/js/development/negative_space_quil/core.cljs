@@ -3,7 +3,6 @@
             [quil.middleware :as m]
             ))
 
-
 (defn create-lattice
   [lattice-def edge]
   (let [w (:width lattice-def)
@@ -22,7 +21,7 @@
           (q/ellipse (+ -1 (* x w) (rand 2))
                      (+ -1 (* y h) (rand 2))
                      (+ (/ x 7) r) (+ (/ x 7) r))
-            ))
+                     ))
     gr
     ))
 
@@ -62,6 +61,9 @@
     :c-angle (rand-int 100)
     :y-lattice (create-lattice (y-def) (q/width))
     :y-angle (rand-int 100)
+    :mouse-within false
+    :mouse-press [nil nil]
+    :mouse-enter [nil nil]
     })
 
 (defn update-state [state]
@@ -70,6 +72,30 @@
     (update , :c-angle #(+ % (/ (rand) -1000)))
     (update , :y-angle #(+ % (/ (rand) 1000)))
     ))
+
+(defn mouse-press-detection
+  [state event]
+  (update state :mouse-press [(:x event) (:y event)])
+  )
+
+(defn mouse-enter-detection
+  [state event]
+  (update state :mouse-enter [(:x event) (:y event)])
+  )
+
+(defn draw-debug-alert
+  [state]
+  (q/with-translation [30 30]
+    (q/fill 220)
+    (q/rect 0 0 300 200)
+    (q/fill 0)
+    (q/text (str "mouse-x: " (q/mouse-x)) 10 10 300 40)
+    (q/text (str "mouse-y: " (q/mouse-y)) 10 25 300 40)
+    (q/text (str "mouse-pressed?: " (q/mouse-pressed?)) 10 40 300 40)
+    (q/text (str "mouse-press: " (:mouse-press state) " <- fun-mode event") 10 55 300 40)
+    (q/text (str "mouse-enter: " (:mouse-enter state) " <- fun-mode event") 10 70 300 40)
+    )
+    )
 
 
 (defn draw-state [state]
@@ -81,26 +107,27 @@
     (q/with-translation [(/ (q/width) 2) (/ (q/height) 2)]
       (q/with-rotation [(:m-angle state)]
         (q/image magenta 0 0)
-      ))
-      (q/with-translation [(/ (q/width) 2) (/ (q/height) 2)]
-        (q/with-rotation [(:c-angle state)]
-          (q/image cyan 0 0)
+        )
+      (q/with-rotation [(:c-angle state)]
+        (q/image cyan 0 0)
+        )
+      (q/with-rotation [(:y-angle state)]
+        (q/image yellow 0 0)
         ))
-      (q/with-translation [(/ (q/width) 2) (/ (q/height) 2)]
-        (q/with-rotation [(:y-angle state)]
-          (q/image yellow 0 0)
-        ))
-      ))
+  (draw-debug-alert state)
+  ))
 
 ; this function is called in index.html
 (defn ^:export run-sketch []
   (q/defsketch negative-space-quil
-    :host "20200208-quil"
+    :host "20200209-quil"
     :size [400 400]
     :setup setup
     :update update-state
     :draw draw-state
     :middleware [m/fun-mode m/navigation-2d]
+    :mouse-pressed mouse-press-detection
+    :mouse-enter mouse-enter-detection
     ))
 
 ; uncomment this line to reset the sketch:
