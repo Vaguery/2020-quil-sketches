@@ -12,3 +12,5 @@ figwheel_server.log
 .rebel_readline_history
 /resources/public/development
 /resources/public/optimized
+*.cache.json
+*.js.map
