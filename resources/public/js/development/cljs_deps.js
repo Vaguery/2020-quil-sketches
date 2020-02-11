@@ -38,4 +38,4 @@ goog.addDependency("../quil/middlewares/navigation_3d.js", ['quil.middlewares.na
 goog.addDependency("../quil/middlewares/navigation_2d.js", ['quil.middlewares.navigation_2d'], ['cljs.core', 'quil.core']);
 goog.addDependency("../quil/middlewares/fun_mode.js", ['quil.middlewares.fun_mode'], ['cljs.core', 'quil.core']);
 goog.addDependency("../quil/middleware.js", ['quil.middleware'], ['cljs.core', 'quil.middlewares.navigation_3d', 'quil.middlewares.navigation_2d', 'quil.middlewares.fun_mode']);
-goog.addDependency("../negative_space_quil/core.js", ['negative_space_quil.core'], ['cljs.core', 'quil.core', 'quil.middleware']);
+goog.addDependency("../negative_space_quil/core.js", ['negative_space_quil.core'], ['cljs.core', 'clojure.set', 'quil.core', 'quil.middleware']);

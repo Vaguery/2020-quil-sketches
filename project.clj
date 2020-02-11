@@ -5,7 +5,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [quil "3.1.0"]
-                 [org.clojure/clojurescript "1.10.520"]]
+                 [org.clojure/clojurescript "1.10.520"]
+                 ]
 
   :plugins [[lein-cljsbuild "1.1.7"]
             [lein-figwheel "0.5.19"]]
@@ -27,7 +28,7 @@
              :source-paths ["src"]
              :compiler
              {:main "negative_space_quil.core"
-              :output-to "resources/public/js/20200209-main.js"
+              :output-to "resources/public/js/20200210-main.js"
               :output-dir "resources/public/js/optimized"
               :asset-path "js/optimized"
               :optimizations :advanced}}]})
